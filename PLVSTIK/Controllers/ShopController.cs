@@ -3,15 +3,15 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
-using PLVSTIK.Models;
+using PLVSTIK.Models; // Add a using statement to include the model's namespace.
 
 namespace PLVSTIK.Controllers
 {
     public class ShopController : Controller
     {
         // Create a list of products
-        List<Product> products = new List<Product>
-        {
+        List<Product> products = new List<Product> // Create a object using the model class, add values to the properties and pass the object to a view
+    {
             new Product
             {
                 Id = 1,
@@ -45,9 +45,9 @@ namespace PLVSTIK.Controllers
             return View("PreOrderSuccess");
         }
 
-        public ActionResult Index()
+        public ActionResult Index() // Display all products
         {
-            return View (products); // Display all products
+            return View (products); // Pass the products to the Index view
         }
 
         public ActionResult PreOrderSuccess()

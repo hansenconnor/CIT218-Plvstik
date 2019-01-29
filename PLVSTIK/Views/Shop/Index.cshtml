@@ -1,5 +1,6 @@
 ﻿@model List<PLVSTIK.Models.Product>
     @{
+        PLVSTIK.Models.Product[] products = Model.ToArray();
         ViewBag.Title = "Shop";
         ViewBag.HasFeaturedImage = true;
         ViewBag.FeaturedImageUrl = "/Content/uploads/photo-1512436991641-6745cdb1723f.jpeg"; }
@@ -27,8 +28,18 @@
         <div class="container">
             <div class="row">
                 @* Display products *@
-                @foreach (PLVSTIK.Models.Product product in Model)
+                @foreach (PLVSTIK.Models.Product product in products)
                 {
+                    if (product.Price > 50.00 && product.Price < 100.00) // Apply discounts depending on the product price
+                    {
+                        product.Price = (product.Price * 0.50);
+                    } else if (product.Price > 100.00)
+                    {
+                        product.Price = (product.Price * 0.25);
+                    } else
+                    {
+                        product.Price = (product.Price * 0.10);
+                    }
                     <div class="col-sm-12 col-md-6 col-lg-3">
                         <div class="card text-white bg-primary mb-3" style="max-width: 20rem;">
                             <img src="@product.ImageUrl" class="card-img-top" alt="...">

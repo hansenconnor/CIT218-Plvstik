@@ -7,6 +7,24 @@
     ViewBag.FeaturedImageUrl = "https://images.unsplash.com/photo-1498387727476-b30055b2ef21?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1350&q=80";
 }
 
+@{ 
+    var formConfirmationMessage = "";
+    var name = "";
+    var email = "";
+    if (IsPost)
+    {
+        // Form submitted so display the success message on the same page (previously, the ContactFormSuccess view was rendered)
+        name    = Request["name"];
+        email   = Request["email"];
+
+        formConfirmationMessage = "Thank you, " + name + "! We've received your message and will reply back to the email you provided: " + email;
+    }
+}
+
+@*Create a view that accepts data from a form and displays something in that same view when the form posts 
+    (you will need to use razor code in the view similar to the GrossPayCalculator example; however, you 
+    don't have to post the result of a calculation.) If this is a new view, you will need to add an action method to a controller*@
+
 <section>
     <div class="container">
         <div class="row">
@@ -18,7 +36,9 @@
                 <p>We typically reply in 24 hours or less!</p>
             </div>
             <div class="col-12 col-lg-4">
-                @*Begin contact form*@
+                @if (!IsPost)
+                {
+                    @*Begin contact form*@
                 <form name="contactForm" method="post">
                     <fieldset>
                         <div class="form-group">
@@ -39,6 +59,8 @@
                     </fieldset>
                 </form>
                 @*End form*@
+                } else { <p class="lead">Thank you, <strong class="text-primary">@name!</strong></p><p>We've received your message and will reply back to the email you provided: <strong class="text-primary">@email</strong></p> }
+                
             </div>
         </div>
     </div>

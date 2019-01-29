@@ -35,13 +35,13 @@ namespace PLVSTIK.Controllers
             return View();
         }
 
-        [HttpPost]
-        [Route("Contact")]
-        public ActionResult Contact(string name)
-        {
-            ViewBag.Message = "Thank you for contacting us, " + name + "!";
-            return View("ContactFormSuccess");
-        }
+        //[HttpPost]
+        //[Route("Contact")]
+        //public ActionResult Contact(string name)
+        //{
+        //    ViewBag.Message = "Thank you for contacting us, " + name + "!";
+        //    return View("ContactFormSuccess");
+        //}
 
         [Route("Contact")]
         public ActionResult Contact()
