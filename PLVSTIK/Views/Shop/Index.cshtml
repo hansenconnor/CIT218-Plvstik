@@ -1,0 +1,105 @@
+﻿@model List<PLVSTIK.Models.Product>
+    @{
+        ViewBag.Title = "Shop";
+        ViewBag.HasFeaturedImage = true;
+        ViewBag.FeaturedImageUrl = "/Content/uploads/photo-1512436991641-6745cdb1723f.jpeg"; }
+
+
+
+
+    <section class="pb-5">
+        <div class="container">
+            <div class="row">
+                <div class="col-sm-12">
+                    <h1>
+                        Welcome To The Shop <br />
+                        <small class="text-muted">Browse Below</small>
+                    </h1>
+                    <p>Products will be available for purchase beginning June, 2019.</p>
+                    <button style="background:#ff5a5a;" class="py-2 text-white btn" data-toggle="modal" data-target="#exampleModal">Click here to pre-order now!</button>
+                    <a href="/contact" class="btn btn-secondary">Contact Us</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section>
+        <div class="container">
+            <div class="row">
+                @* Display products *@
+                @foreach (PLVSTIK.Models.Product product in Model)
+                {
+                    <div class="col-sm-12 col-md-6 col-lg-3">
+                        <div class="card text-white bg-primary mb-3" style="max-width: 20rem;">
+                            <img src="@product.ImageUrl" class="card-img-top" alt="...">
+                            <div class="card-header">@product.Price</div>
+                            <div class="card-body">
+                                <h4 class="card-title">@product.Title</h4>
+                                <p class="card-text">@product.Description</p>
+                            </div>
+                        </div>
+                    </div>
+                }
+            </div>
+        </div>
+    </section>
+
+
+@* Modal popup to display pre-order form *@
+<!-- Modal -->
+<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Pre-Order Form</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                @*Begin form*@
+                <form name="pre-order-form" method="post">
+                    <fieldset>
+                     <div class="form-group">
+                         <label for="inputName">Name</label>
+                         <input type="text" name="name" class="form-control" id="inputName" placeholder="Enter your name" required/>
+                     </div>
+                     <div class="form-group">
+                            <label for="exampleInputEmail1">Email address</label>
+                            <input type="email" name="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email" required>
+                            <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
+                        </div>
+                        <fieldset class="form-group">
+                            <legend>Select your pre-order items</legend>
+                            @*TODO: Require at least one box to be checked*@
+                            <div class="form-check">
+                                <label class="form-check-label">
+                                    <input class="form-check-input" name="check1" type="checkbox" value="">
+                                    PLVSTIK Purse
+                                </label>
+                            </div>
+                            <div class="form-check">
+                                <label class="form-check-label">
+                                    <input class="form-check-input" name="check2" type="checkbox" value="">
+                                    PLVSTIK Shirt
+                                </label>
+                            </div>
+                            <div class="form-check">
+                                <label class="form-check-label">
+                                    <input class="form-check-input" name="check3" type="checkbox" value="">
+                                    PLVSTIK Sunglasses
+                                </label>
+                            </div>
+                        </fieldset>
+                        <button type="submit" class="btn btn-primary">Submit</button>
+                    </fieldset>
+                </form>
+                @*End form*@
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                @*<button type="button" class="btn btn-primary">Save changes</button>*@
+            </div>
+        </div>
+    </div>
+</div>

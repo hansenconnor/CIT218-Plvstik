@@ -1,0 +1,14 @@
+﻿<Properties StartupConfiguration="{B6F77C81-DAF1-41A8-B8B6-01A6D863F8E2}|">
+  <MonoDevelop.Ide.Workbench ActiveDocument="PLVSTIK/Views/Shop/Index.cshtml">
+    <Files>
+      <File FileName="PLVSTIK/Views/Shop/Index.cshtml" Line="10" Column="27" />
+    </Files>
+  </MonoDevelop.Ide.Workbench>
+  <MonoDevelop.Ide.ItemProperties.PLVSTIK PreferredExecutionTarget="MonoDevelop.Default" />
+  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
+  <MonoDevelop.Ide.DebuggingService.Breakpoints>
+    <BreakpointStore />
+  </MonoDevelop.Ide.DebuggingService.Breakpoints>
+  <MultiItemStartupConfigurations />
+</Properties>
