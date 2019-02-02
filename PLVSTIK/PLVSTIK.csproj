@@ -156,6 +156,9 @@
     <Content Include="Content\PreOrderSuccessStyles.css" />
     <Content Include="Views\Home\Contact.cshtml" />
     <Content Include="Views\Home\ContactFormSuccess.cshtml" />
+    <Content Include="Content\uploads\photo-1512436991641-6745cdb1723f.jpeg">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="App_Start\RouteConfig.cs" />
@@ -192,11 +195,6 @@
   </ItemGroup>
   <ItemGroup>
     <TypeScriptCompile Include="Scripts\index.d.ts" />
-  </ItemGroup>
-  <ItemGroup>
-    <EmbeddedResource Include="Content\uploads\photo-1512436991641-6745cdb1723f.jpeg">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
