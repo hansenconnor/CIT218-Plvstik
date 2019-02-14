@@ -1,10 +1,10 @@
 ﻿@model IEnumerable<PLVSTIK.Models.User>
 
 @{
-    ViewBag.Title = "Index";
+    ViewBag.Title = "Users";
+    ViewBag.HasFeaturedImage = true;
+    ViewBag.FeaturedImageUrl = "/Content/uploads/pexels-photo-1070030.jpeg";
 }
-
-<h2>Index</h2>
 
 <p>
     @Html.ActionLink("Create New", "Create")
