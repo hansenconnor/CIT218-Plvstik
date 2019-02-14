@@ -29,7 +29,7 @@
     @*End Custom Nagivation*@
 
     @*Display image header if page has featured image*@
-    @if (ViewBag.HasFeaturedImage)
+    @if (ViewBag.HasFeaturedImage != null)
     {
         <header>
             <section style="background:url(@ViewBag.FeaturedImageUrl); background-size:cover; background-position:center center; background-repeat:no-repeat;">
