@@ -15,7 +15,7 @@ namespace PLVSTIK.Controllers
             {
                 new Product
                 {
-                    Id = 0,
+                    ID = 0,
                     Title = "Hand Bag",
                     Description = "Classy handbag to take with you anywhere.",
                     Price = 50.00,

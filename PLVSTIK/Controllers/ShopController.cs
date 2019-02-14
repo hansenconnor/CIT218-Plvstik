@@ -14,7 +14,7 @@ namespace PLVSTIK.Controllers
     {
             new Product
             {
-                Id = 1,
+                ID = 1,
                 Title = "PLVSTIK Purse",
                 Description = "Limited edition PLVSTIK purse. Availabile in pink or blue.",
                 Price = 50.00,
@@ -22,7 +22,7 @@ namespace PLVSTIK.Controllers
             },
             new Product
             {
-                Id = 2,
+                ID = 2,
                 Title = "PLVSTIK Shirt",
                 Description = "Custom PLVSTIK shirt featuring a skeleton hand graphic.",
                 Price = 20.00,
@@ -30,7 +30,7 @@ namespace PLVSTIK.Controllers
             },
             new Product
             {
-                Id = 3,
+                ID = 3,
                 Title = "PLVSTIK Sunglasses",
                 Description = "PLVSTIK x RayBan sunglasses with a classic green tint.",
                 Price = 150.00,
@@ -59,7 +59,7 @@ namespace PLVSTIK.Controllers
         {
             foreach (Product product in products)
             {
-                if (product.Id == productId)
+                if (product.ID == productId)
                 {
                     return View(product);
                 }

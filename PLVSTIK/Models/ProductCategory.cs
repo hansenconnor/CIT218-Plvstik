@@ -13,5 +13,7 @@ namespace PLVSTIK.Models
     public class ProductCategory
     {
         public int ID { get; set; }
+        public Category Category { get; set; }
+
     }
 }
