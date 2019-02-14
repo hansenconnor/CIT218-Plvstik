@@ -233,3 +233,7 @@ C:\Users\hanse174\Desktop\CIT218-Plvstik\PLVSTIK\obj\Debug\PLVSTIK.csprojResolve
 C:\Users\hanse174\Desktop\CIT218-Plvstik\PLVSTIK\obj\Debug\PLVSTIK.csproj.CoreCompileInputs.cache
 C:\Users\hanse174\Desktop\CIT218-Plvstik\PLVSTIK\obj\Debug\PLVSTIK.dll
 C:\Users\hanse174\Desktop\CIT218-Plvstik\PLVSTIK\obj\Debug\PLVSTIK.pdb
+C:\Users\hanse174\Desktop\CIT218-Plvstik\PLVSTIK\bin\EntityFramework.dll
+C:\Users\hanse174\Desktop\CIT218-Plvstik\PLVSTIK\bin\EntityFramework.SqlServer.dll
+C:\Users\hanse174\Desktop\CIT218-Plvstik\PLVSTIK\bin\EntityFramework.xml
+C:\Users\hanse174\Desktop\CIT218-Plvstik\PLVSTIK\bin\EntityFramework.SqlServer.xml
