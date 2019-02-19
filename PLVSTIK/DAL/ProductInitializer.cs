@@ -11,15 +11,29 @@ namespace PLVSTIK.DAL
     {
         protected override void Seed(ProductContext context)
         {
+            
+            // Initialize Product Category sample data
+            Dictionary<int, string> productCategories = new Dictionary<int, string> {};
+
+            public enum myCategories
+            {
+                asdf, lkasdjf, asdlfkj
+            }
+
+            // Add entries to the corresponding table
+            productCategories.ForEach(pc => context.ProductCategories.Add(pc));
+            context.SaveChanges(); // Save changes to Product Categories table
+
+
             // Initialize Product sample data
             var products = new List<Product>
             {
-                new Product{ID=1,Title="Black Bag", Description="Awesome Black bag", ImageUrl="#", Price=50.00, Category },
-                new Product{ID=1,Title="Red Bag", Description="Awesome Black bag", ImageUrl="#", Price=50.00 },
-                new Product{ID=1,Title="White Shirt", Description="Awesome Black bag", ImageUrl="#", Price=50.00 },
-                new Product{ID=1,Title="Black Shirt", Description="Awesome Black bag", ImageUrl="#", Price=50.00 },
-                new Product{ID=1,Title="Sweat Shirt", Description="Awesome Black bag", ImageUrl="#", Price=50.00 },
-                new Product{ID=1,Title="Sunglasses", Description="Awesome Black bag", ImageUrl="#", Price=50.00 }
+                new Product{ Title="Black Bag", Description="Awesome Black bag", ImageUrl="#", Price=50.00, Categories = [new ProductCategory{Name="bags" }] },
+                new Product{ Title="Red Bag", Description="Awesome Black bag", ImageUrl="#", Price=50.00 },
+                new Product{ Title="White Shirt", Description="Awesome Black bag", ImageUrl="#", Price=50.00 },
+                new Product{ Title="Black Shirt", Description="Awesome Black bag", ImageUrl="#", Price=50.00 },
+                new Product{ Title="Sweat Shirt", Description="Awesome Black bag", ImageUrl="#", Price=50.00 },
+                new Product{ Title="Sunglasses", Description="Awesome Black bag", ImageUrl="#", Price=50.00 }
             };
             // Add entries to the corresponding table
             products.ForEach(p => context.Products.Add(p));
@@ -39,20 +53,6 @@ namespace PLVSTIK.DAL
             // Add entries to the corresponding table
             users.ForEach(u => context.Users.Add(u));
             context.SaveChanges(); // Save changes to User table
-
-
-            // Initialize Product Category sample data
-            var productCategories = new List<ProductCategory>
-            {
-                new ProductCategory { ID=1, Name="Backpacks" },
-                new ProductCategory { ID=2, Name="Shirts" },
-                new ProductCategory { ID=3, Name="Glasses" },
-                new ProductCategory { ID=4, Name="Bags" },
-                new ProductCategory { ID=5, Name="Hoodies" }
-            };
-            // Add entries to the corresponding table
-            productCategories.ForEach(pc => context.ProductCategories.Add(pc));
-            context.SaveChanges(); // Save changes to Product Categories table
         }
     }
 }
