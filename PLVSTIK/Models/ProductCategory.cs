@@ -6,7 +6,7 @@ using System.Web;
 namespace PLVSTIK.Models
 {
     public class ProductCategory
-    {
+    { 
         public int ID { get; set; }
         public string Name { get; set; }
     }

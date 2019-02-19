@@ -11,24 +11,36 @@ namespace PLVSTIK.DAL
     {
         protected override void Seed(ProductContext context)
         {
-            
+
             // Initialize Product Category sample data
-            Dictionary<int, string> productCategories = new Dictionary<int, string> {};
-
-            public enum myCategories
+            var productCategories = new List<ProductCategory>
             {
-                asdf, lkasdjf, asdlfkj
-            }
-
+                new ProductCategory { Name="Bags" },
+                new ProductCategory { Name="Shirts" },
+                new ProductCategory { Name="Pants" },
+                new ProductCategory { Name="Glasses" },
+            };
             // Add entries to the corresponding table
             productCategories.ForEach(pc => context.ProductCategories.Add(pc));
             context.SaveChanges(); // Save changes to Product Categories table
 
 
             // Initialize Product sample data
+            ProductCategory c;
             var products = new List<Product>
             {
-                new Product{ Title="Black Bag", Description="Awesome Black bag", ImageUrl="#", Price=50.00, Categories = [new ProductCategory{Name="bags" }] },
+                new Product
+                {
+                    Title = "Black Bag",
+                    Description = "Awesome Black bag",
+                    ImageUrl = "#",
+                    Price = 50.00,
+                    Categories = new List<ProductCategory>
+                    {
+                        productCategories.Find(Product => Product.Name == "Bags"),
+                        productCategories.Find(Product => Product.Name == "Shirts"),
+                    }
+                },
                 new Product{ Title="Red Bag", Description="Awesome Black bag", ImageUrl="#", Price=50.00 },
                 new Product{ Title="White Shirt", Description="Awesome Black bag", ImageUrl="#", Price=50.00 },
                 new Product{ Title="Black Shirt", Description="Awesome Black bag", ImageUrl="#", Price=50.00 },

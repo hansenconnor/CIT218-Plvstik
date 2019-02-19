@@ -47,7 +47,7 @@ namespace PLVSTIK.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "ID,Category")] ProductCategory productCategory)
+        public ActionResult Create([Bind(Include = "ID,Name")] ProductCategory productCategory)
         {
             if (ModelState.IsValid)
             {
@@ -79,7 +79,7 @@ namespace PLVSTIK.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "ID,Category")] ProductCategory productCategory)
+        public ActionResult Edit([Bind(Include = "ID,Name")] ProductCategory productCategory)
         {
             if (ModelState.IsValid)
             {
