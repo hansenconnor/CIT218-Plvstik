@@ -21,7 +21,7 @@ namespace PLVSTIK.Controllers
             // TODO: Add additional filters: Timeframe, popularity, etc.
             if (featured)
             {
-                return View(db.Products.Where(p => p.Featured == true));
+                return View(db.Products.Where(p => p.Featured).ToList());
             }
             return View(db.Products.ToList());
         }
@@ -53,7 +53,7 @@ namespace PLVSTIK.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "ID,Title,Description,Price,ImageUrl")] Product product)
+        public ActionResult Create([Bind(Include = "ID,Title,Description,Price,ImageUrl,Featured")] Product product)
         {
             if (ModelState.IsValid)
             {
@@ -85,7 +85,7 @@ namespace PLVSTIK.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "ID,Title,Description,Price,ImageUrl")] Product product)
+        public ActionResult Edit([Bind(Include = "ID,Title,Description,Price,ImageUrl,Featured")] Product product)
         {
             if (ModelState.IsValid)
             {

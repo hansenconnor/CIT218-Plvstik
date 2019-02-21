@@ -192,7 +192,6 @@ C:\Users\hanse174\Desktop\CIT218-Plvstik\PLVSTIK\bin\EntityFramework.dll
 C:\Users\hanse174\Desktop\CIT218-Plvstik\PLVSTIK\bin\EntityFramework.SqlServer.dll
 C:\Users\hanse174\Desktop\CIT218-Plvstik\PLVSTIK\bin\EntityFramework.xml
 C:\Users\hanse174\Desktop\CIT218-Plvstik\PLVSTIK\bin\EntityFramework.SqlServer.xml
-C:\Users\hanse174\Desktop\CIT218-Plvstik\PLVSTIK\obj\Debug\PLVSTIK.csprojResolveAssemblyReference.cache
 C:\Users\hanse174\Desktop\CIT218-Plvstik\PLVSTIK\bin\roslyn\csc.exe
 C:\Users\hanse174\Desktop\CIT218-Plvstik\PLVSTIK\bin\roslyn\csc.exe.config
 C:\Users\hanse174\Desktop\CIT218-Plvstik\PLVSTIK\bin\roslyn\csc.rsp
