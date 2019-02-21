@@ -16,10 +16,16 @@ namespace PLVSTIK.Controllers
         private ProductContext db = new ProductContext();
 
         // GET: Product
-        public ActionResult Index()
+        public ActionResult Index(bool featured = false)
         {
+            // TODO: Add additional filters: Timeframe, popularity, etc.
+            if (featured)
+            {
+                return View(db.Products.Where(p => p.Featured == true));
+            }
             return View(db.Products.ToList());
         }
+
 
         // GET: Product/Details/5
         public ActionResult Details(int? id)

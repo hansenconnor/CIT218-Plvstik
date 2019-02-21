@@ -41,7 +41,7 @@ namespace PLVSTIK.DAL
                         productCategories.Find(Product => Product.Name == "Shirts"),
                     }
                 },
-                new Product{ Title="Red Bag", Description="Awesome Black bag", ImageUrl="#", Price=50.00 },
+                new Product{ Title="Red Bag", Description="Awesome Black bag", ImageUrl="#", Price=50.00, Featured = true },
                 new Product{ Title="White Shirt", Description="Awesome Black bag", ImageUrl="#", Price=50.00 },
                 new Product{ Title="Black Shirt", Description="Awesome Black bag", ImageUrl="#", Price=50.00 },
                 new Product{ Title="Sweat Shirt", Description="Awesome Black bag", ImageUrl="#", Price=50.00 },

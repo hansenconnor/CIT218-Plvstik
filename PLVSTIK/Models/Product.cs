@@ -12,6 +12,7 @@ namespace PLVSTIK.Models
         public string Description { get; set; }
         public double Price { get; set; }
         public string ImageUrl { get; set; }
+        public bool Featured { get; set; }
 
         public List<ProductCategory> Categories { get; set; } // List to hold associated product categories
     }
