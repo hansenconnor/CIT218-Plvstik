@@ -1,59 +1,77 @@
-﻿@model List<PLVSTIK.Models.Product>
-    @{
-        PLVSTIK.Models.Product[] products = Model.ToArray();
-        ViewBag.Title = "Shop";
-        ViewBag.HasFeaturedImage = true;
-        ViewBag.FeaturedImageUrl = "/Content/uploads/photo-1512436991641-6745cdb1723f.jpeg"; }
+﻿@model IEnumerable<PLVSTIK.Models.Product>
+@{
+    PLVSTIK.Models.Product[] products = Model.ToArray();
+    ViewBag.Title = "Shop";
+    ViewBag.HasFeaturedImage = true;
+    ViewBag.FeaturedImageUrl = "/Content/uploads/photo-1512436991641-6745cdb1723f.jpeg"; }
 
 
 
 
-    <section class="pb-5">
-        <div class="container">
-            <div class="row">
-                <div class="col-sm-12">
-                    <h1>
-                        Welcome To The Shop <br />
-                        <small class="text-muted">Browse Below</small>
-                    </h1>
-                    <p>Products will be available for purchase beginning June, 2019.</p>
-                    <button style="background:#ff5a5a;" class="py-2 text-white btn" data-toggle="modal" data-target="#exampleModal">Click here to pre-order now!</button>
-                    <a href="/contact" class="btn btn-secondary">Contact Us</a>
+<section class="pb-5">
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-12">
+                <h1>
+                    Welcome To The Shop <br />
+                    <small class="text-muted">Browse Below</small>
+                </h1>
+                <p>Products will be available for purchase beginning June, 2019.</p>
+                <button style="background:#ff5a5a;" class="py-2 text-white btn" data-toggle="modal" data-target="#exampleModal">Click here to pre-order now!</button>
+                <a href="/contact" class="btn btn-secondary">Contact Us</a>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section>
+    <div class="container">
+        <div class="row">
+            @* TODO: Add filter, sort and search functionality (AJAX?) *@
+            @*@Html.DisplayNameFor(Model => Model.Title)*@
+            @foreach (var item in Model)
+            {
+                <div class="col-12 col-md-6 col-lg-3">
+                <div class="card text-white bg-primary mb-3" >
+                    <img src="@item.ImageUrl" class="card-img-top" alt="...">
+                    <div class="card-header">@item.Price</div>
+                    <div class="card-body">
+                        <h4 class="card-title">@item.Title</h4>
+                        <p class="card-text">@item.Description</p>
+                    </div>
                 </div>
             </div>
-        </div>
-    </section>
-
-    <section>
-        <div class="container">
-            <div class="row">
-                @* Display products *@
-                @foreach (PLVSTIK.Models.Product product in products)
-                {
-                    if (product.Price > 50.00 && product.Price < 100.00) // Apply discounts depending on the product price
-                    {
-                        product.Price = (product.Price * 0.50);
-                    } else if (product.Price > 100.00)
-                    {
-                        product.Price = (product.Price * 0.25);
-                    } else
-                    {
-                        product.Price = (product.Price * 0.10);
-                    }
-                    <div class="col-sm-12 col-md-6 col-lg-3">
-                        <div class="card text-white bg-primary mb-3" style="max-width: 20rem;">
-                            <img src="@product.ImageUrl" class="card-img-top" alt="...">
-                            <div class="card-header">@product.Price</div>
-                            <div class="card-body">
-                                <h4 class="card-title">@product.Title</h4>
-                                <p class="card-text">@product.Description</p>
-                            </div>
-                        </div>
+                @*@Html.DisplayFor(modelItem => item.Title)*@
+            }
+            @* Display products *@
+            @*@foreach (PLVSTIK.Models.Product product in products)
+        {
+            if (product.Price > 50.00 && product.Price < 100.00) // Apply discounts depending on the product price
+            {
+                product.Price = (product.Price * 0.50);
+            }
+            else if (product.Price > 100.00)
+            {
+                product.Price = (product.Price * 0.25);
+            }
+            else
+            {
+                product.Price = (product.Price * 0.10);
+            }
+            <div class="col-sm-12 col-md-6 col-lg-3">
+                <div class="card text-white bg-primary mb-3" style="max-width: 20rem;">
+                    <img src="@product.ImageUrl" class="card-img-top" alt="...">
+                    <div class="card-header">@product.Price</div>
+                    <div class="card-body">
+                        <h4 class="card-title">@product.Title</h4>
+                        <p class="card-text">@product.Description</p>
                     </div>
-                }
+                </div>
             </div>
+        }*@
         </div>
-    </section>
+    </div>
+</section>
 
 
 @* Modal popup to display pre-order form *@
@@ -71,11 +89,11 @@
                 @*Begin form*@
                 <form name="pre-order-form" method="post">
                     <fieldset>
-                     <div class="form-group">
-                         <label for="inputName">Name</label>
-                         <input type="text" name="name" class="form-control" id="inputName" placeholder="Enter your name" required/>
-                     </div>
-                     <div class="form-group">
+                        <div class="form-group">
+                            <label for="inputName">Name</label>
+                            <input type="text" name="name" class="form-control" id="inputName" placeholder="Enter your name" required />
+                        </div>
+                        <div class="form-group">
                             <label for="exampleInputEmail1">Email address</label>
                             <input type="email" name="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email" required>
                             <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>

@@ -3,12 +3,14 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using PLVSTIK.DAL;
 using PLVSTIK.Models; // Add a using statement to include the model's namespace.
 
 namespace PLVSTIK.Controllers
 {
     public class ShopController : Controller
     {
+        private ProductContext db = new ProductContext(); // Create db instance
         // Create a list of products
         List<Product> products = new List<Product> // Create a object using the model class, add values to the properties and pass the object to a view
     {
@@ -45,9 +47,14 @@ namespace PLVSTIK.Controllers
             return View("PreOrderSuccess");
         }
 
-        public ActionResult Index() // Display all products
+        public ActionResult Index(bool featured = false) // Display all products
         {
-            return View (products); // Pass the products to the Index view
+            // TODO: Add additional filters: Timeframe, popularity, etc.
+            if (featured)
+            {
+                return View(db.Products.Where(p => p.Featured).ToList());
+            }
+            return View(db.Products.ToList());
         }
 
         public ActionResult PreOrderSuccess()
