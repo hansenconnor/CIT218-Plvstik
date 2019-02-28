@@ -229,4 +229,3 @@ C:\Users\hanse174\Desktop\CIT218-Plvstik\PLVSTIK\bin\roslyn\vbc.exe
 C:\Users\hanse174\Desktop\CIT218-Plvstik\PLVSTIK\bin\roslyn\vbc.exe.config
 C:\Users\hanse174\Desktop\CIT218-Plvstik\PLVSTIK\bin\roslyn\vbc.rsp
 C:\Users\hanse174\Desktop\CIT218-Plvstik\PLVSTIK\bin\roslyn\VBCSCompiler.exe.config
-C:\Users\hanse174\Desktop\CIT218-Plvstik\PLVSTIK\obj\Debug\PLVSTIK.csprojResolveAssemblyReference.cache

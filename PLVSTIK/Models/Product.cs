@@ -14,6 +14,6 @@ namespace PLVSTIK.Models
         public string ImageUrl { get; set; }
         public bool Featured { get; set; }
 
-        public List<ProductCategory> Categories { get; set; } // List to hold associated product categories
+        public virtual ICollection<ProductCategory> Categories { get; set; } // List to hold associated product categories
     }
 }
