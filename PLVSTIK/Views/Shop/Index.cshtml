@@ -29,7 +29,7 @@
         <div class="row">
             <div class="col-8 offset-2">
                 @*Sort and Filter form*@
-                @using (Html.BeginForm("Sort", "Shop", FormMethod.Get, new  { id="empform" }))
+                @using (Html.BeginForm("Index", "Shop", FormMethod.Get, new  { order="empform" }))
                 {
                     @Html.AntiForgeryToken();
                     <div class="form-group">
@@ -37,17 +37,19 @@
                             <div class="input-group-prepend">
                                 <label class="input-group-text" for="inputGroupSelect01">Options</label>
                             </div>
-                            <select class="custom-select" id="inputGroupSelect01">
-                                <option selected>Popular</option>
-                                <option value="1">One</option>
+                            <select name="order" class="custom-select" id="inputGroupSelect01">
+                                <option selected>@ViewBag.Order</option>
+                                <option value="most_views">Most Viewed</option>
                                 <option value="2">Two</option>
                                 <option value="3">Three</option>
-
+                            </select>
+                            <select>
                                 <option selected>All</option>
                                 <option value="1">One</option>
                                 <option value="2">Two</option>
                                 <option value="3">Three</option>
-
+                            </select>
+                            <select>
                                 <option selected>Now</option>
                                 <option value="1">One</option>
                                 <option value="2">Two</option>

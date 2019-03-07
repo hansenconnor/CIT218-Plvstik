@@ -48,13 +48,15 @@ namespace PLVSTIK.Controllers
         }
 
         [HttpGet]
-        public ActionResult Sort( string order, string type, string timeframe )
+        public ActionResult Index( string order, string type, string timeframe )
         {
-            ViewBag.Order = String.IsNullOrEmpty(order) ? "Most Popular" : "";
+            ViewBag.Order = String.IsNullOrEmpty(order) ? "most_views" : order;
             ViewBag.Type = String.IsNullOrEmpty(type) ? "All Products" : "";
             ViewBag.Timeframe = String.IsNullOrEmpty(timeframe) ? "All Time" : "";
 
             // TODO: filter products
+
+            // TODO: Switch here to set friendly name for order, type, and timeframe ex. most_views => Most Views
 
             return View("Index", db.Products.ToList());
         }
