@@ -27,6 +27,67 @@
 <section>
     <div class="container">
         <div class="row">
+            <div class="col-8 offset-2">
+                @*Sort and Filter form*@
+                @using (Html.BeginForm("Sort", "Shop", FormMethod.Get, new  { id="empform" }))
+                {
+                    @Html.AntiForgeryToken();
+                    <div class="form-group">
+                        <div class="input-group mb-3">
+                            <div class="input-group-prepend">
+                                <label class="input-group-text" for="inputGroupSelect01">Options</label>
+                            </div>
+                            <select class="custom-select" id="inputGroupSelect01">
+                                <option selected>Popular</option>
+                                <option value="1">One</option>
+                                <option value="2">Two</option>
+                                <option value="3">Three</option>
+
+                                <option selected>All</option>
+                                <option value="1">One</option>
+                                <option value="2">Two</option>
+                                <option value="3">Three</option>
+
+                                <option selected>Now</option>
+                                <option value="1">One</option>
+                                <option value="2">Two</option>
+                                <option value="3">Three</option>
+                            </select>
+                        </div>
+                    </div>
+                    <button type="submit" class="btn btn-primary">Submit</button>
+                }
+                <form method="post" action="">
+                    <div class="form-group">
+                        <div class="input-group mb-3">
+                            <div class="input-group-prepend">
+                                <label class="input-group-text" for="inputGroupSelect01">Options</label>
+                            </div>
+                            <select class="custom-select" id="inputGroupSelect01">
+                                <option selected>Choose...</option>
+                                <option value="1">One</option>
+                                <option value="2">Two</option>
+                                <option value="3">Three</option>
+                            </select>
+                        </div>
+                    </div>
+                    <button type="submit" class="btn btn-primary">Submit</button>
+                </form>
+
+                <div class="d-flex">
+                    <div class="dropdown mr-1">
+                        <button type="button" class="btn btn-secondary dropdown-toggle" id="dropdownMenuOffset" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" data-offset="10,20">
+                            Offset
+                        </button>
+                        <div class="dropdown-menu" aria-labelledby="dropdownMenuOffset">
+                            @Html.ActionLink("Popular", "Index", new { order = ViewBag.Order }, new { @class = "dropdown-item" }) @*Popularity metric*@
+                            @Html.ActionLink("All", "Index", new { type = ViewBag.Type }, new { @class = "dropdown-item" }) @*Item type ex. bag, shirt*@
+                            @Html.ActionLink("Now", "Index", new { timeframe = ViewBag.Timeframe }, new { @class = "dropdown-item" }) @*Date added*@
+                        </div>
+                    </div>
+                </div>
+
+            </div>
             @* TODO: Add filter, sort and search functionality (AJAX?) *@
             @*@Html.DisplayNameFor(Model => Model.Title)*@
             @foreach (var item in Model)

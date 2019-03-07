@@ -47,8 +47,26 @@ namespace PLVSTIK.Controllers
             return View("PreOrderSuccess");
         }
 
+        [HttpGet]
+        public ActionResult Sort( string order, string type, string timeframe )
+        {
+            ViewBag.Order = String.IsNullOrEmpty(order) ? "Most Popular" : "";
+            ViewBag.Type = String.IsNullOrEmpty(type) ? "All Products" : "";
+            ViewBag.Timeframe = String.IsNullOrEmpty(timeframe) ? "All Time" : "";
+
+            // TODO: filter products
+
+            return View("Index", db.Products.ToList());
+        }
+
         public ActionResult Index(bool featured = false) // Display all products
         {
+            //ViewBag.NameSortParam = String.IsNullOrEmpty(order) ? "sort" : "";
+            //ViewBag.DateSortParam = order == "Date" ? "date_desc" : "Date";
+
+            //var shopItems = from p in products
+            //                where p.Categories.Contains(type as ProductCategory)
+
             // TODO: Add additional filters: Timeframe, popularity, etc.
             if (featured)
             {
