@@ -27,67 +27,45 @@
 <section>
     <div class="container">
         <div class="row">
-            <div class="col-8 offset-2">
+            <div class="col-12">
                 @*Sort and Filter form*@
-                @using (Html.BeginForm("Index", "Shop", FormMethod.Get, new  { order="empform" }))
-                {
-                    @Html.AntiForgeryToken();
-                    <div class="form-group">
-                        <div class="input-group mb-3">
-                            <div class="input-group-prepend">
-                                <label class="input-group-text" for="inputGroupSelect01">Options</label>
-                            </div>
-                            <select name="order" class="custom-select" id="inputGroupSelect01">
-                                <option selected>@ViewBag.Order</option>
-                                <option value="most_views">Most Viewed</option>
-                                <option value="2">Two</option>
-                                <option value="3">Three</option>
-                            </select>
-                            <select>
-                                <option selected>All</option>
-                                <option value="1">One</option>
-                                <option value="2">Two</option>
-                                <option value="3">Three</option>
-                            </select>
-                            <select>
-                                <option selected>Now</option>
-                                <option value="1">One</option>
-                                <option value="2">Two</option>
-                                <option value="3">Three</option>
-                            </select>
-                        </div>
+                @using (Html.BeginForm("Index", "Shop", FormMethod.Get, new { order = "empform" }))
+    {
+            @Html.AntiForgeryToken();
+                
+                <div class="form-row">
+                    <div class="form-group col-12 col-md-2">
+                        <label class="input-group-text" for="inputGroupSelect01">Sort</label>
                     </div>
-                    <button type="submit" class="btn btn-primary">Submit</button>
-                }
-                <form method="post" action="">
-                    <div class="form-group">
-                        <div class="input-group mb-3">
-                            <div class="input-group-prepend">
-                                <label class="input-group-text" for="inputGroupSelect01">Options</label>
-                            </div>
-                            <select class="custom-select" id="inputGroupSelect01">
-                                <option selected>Choose...</option>
-                                <option value="1">One</option>
-                                <option value="2">Two</option>
-                                <option value="3">Three</option>
-                            </select>
-                        </div>
-                    </div>
-                    <button type="submit" class="btn btn-primary">Submit</button>
-                </form>
 
-                <div class="d-flex">
-                    <div class="dropdown mr-1">
-                        <button type="button" class="btn btn-secondary dropdown-toggle" id="dropdownMenuOffset" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" data-offset="10,20">
-                            Offset
-                        </button>
-                        <div class="dropdown-menu" aria-labelledby="dropdownMenuOffset">
-                            @Html.ActionLink("Popular", "Index", new { order = ViewBag.Order }, new { @class = "dropdown-item" }) @*Popularity metric*@
-                            @Html.ActionLink("All", "Index", new { type = ViewBag.Type }, new { @class = "dropdown-item" }) @*Item type ex. bag, shirt*@
-                            @Html.ActionLink("Now", "Index", new { timeframe = ViewBag.Timeframe }, new { @class = "dropdown-item" }) @*Date added*@
-                        </div>
+                    <div class="form-group col-12 col-md-3">
+                        <select name="gender" class="custom-select" id="inputGroupSelect01">
+                            <option value="" disabled selected>Gender...</option>
+                            <option @if (ViewBag.Gender == "male") { <text> selected</text> } value="mens">Mens</option>
+                            <option @if (ViewBag.Gender == "female") { <text> selected</text> } value="womens">Womens</option>
+                        </select>
                     </div>
+
+                    <div class="form-group col-12 col-md-3">
+                        <select name="category" class="custom-select" id="inputGroupSelect02">
+                            <option value="" disabled selected>Category...</option>
+                            <option @if (ViewBag.Category == "shirts") { <text> selected</text> } value="shirts">Shirts</option>
+                            <option @if (ViewBag.Category == "shoes") { <text> selected</text> } value="shoes">Shoes</option>
+                            <option @if (ViewBag.Category == "hats") { <text> selected</text> } value="hats">Hats</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group col-12 col-md-3">
+                        <select name="price" class="custom-select" id="inputGroupSelect03">
+                            <option value="" disabled selected>Price...</option>
+                            <option @if (ViewBag.Price == "ascending") { <text> selected</text> } value="ascending">$ - $$$</option>
+                            <option @if (ViewBag.Price == "descending") { <text> selected</text> } value="descending">$$$ - $</option>
+                        </select>
+                    </div>
+
                 </div>
+}
+
 
             </div>
             @* TODO: Add filter, sort and search functionality (AJAX?) *@

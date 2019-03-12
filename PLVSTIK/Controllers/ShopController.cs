@@ -48,9 +48,9 @@ namespace PLVSTIK.Controllers
         }
 
         [HttpGet]
-        public ActionResult Index( string order, string type, string timeframe )
+        public ActionResult Index( string gender = "Select Gender", string type = "products", string timeframe = "recent" )
         {
-            ViewBag.Order = String.IsNullOrEmpty(order) ? "most_views" : order;
+            ViewBag.Gender = String.IsNullOrEmpty(gender) ? gender : gender;
             ViewBag.Type = String.IsNullOrEmpty(type) ? "All Products" : "";
             ViewBag.Timeframe = String.IsNullOrEmpty(timeframe) ? "All Time" : "";
 
