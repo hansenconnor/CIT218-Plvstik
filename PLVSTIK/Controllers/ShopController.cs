@@ -48,11 +48,13 @@ namespace PLVSTIK.Controllers
         }
 
         [HttpGet]
-        public ActionResult Index( string gender = "Select Gender", string type = "products", string timeframe = "recent" )
+        public ActionResult Index( string gender, string category, string price )
         {
-            ViewBag.Gender = String.IsNullOrEmpty(gender) ? gender : gender;
-            ViewBag.Type = String.IsNullOrEmpty(type) ? "All Products" : "";
-            ViewBag.Timeframe = String.IsNullOrEmpty(timeframe) ? "All Time" : "";
+            ViewBag.MyQSVal = Request.QueryString;
+
+            ViewBag.Gender = String.IsNullOrEmpty(gender) ? "male" : gender;
+            ViewBag.Category = String.IsNullOrEmpty(category) ? "shirts" : category;
+            ViewBag.Price = String.IsNullOrEmpty(price) ? "descending" : price;
 
             // TODO: filter products
 

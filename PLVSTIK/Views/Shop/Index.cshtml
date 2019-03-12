@@ -28,42 +28,54 @@
     <div class="container">
         <div class="row">
             <div class="col-12">
-                @*Sort and Filter form*@
-                @using (Html.BeginForm("Index", "Shop", FormMethod.Get, new { order = "empform" }))
-    {
+                <ul>
+                    <li><a href=@($"{Request.Url.AbsoluteUri}{"?gender=male"}")>content</a></li>
+                </ul>
+            </div>
+            <div class="col-12">
+                <a href="@Request.Url.ToString()">Request URL To String</a>
+                <div>@Request.QueryString</div>
+                <a href="@(Request.QueryString["gender"] == "male" ? "noMale"  : "hasMale")">asdf</a>
+
+            <a href="/adsf?price=ascending">content</a>
+            @*Sort and Filter form*@
+            @using (Html.BeginForm("Index", "Shop", FormMethod.Get, new { order = "empform" }))
+{
             @Html.AntiForgeryToken();
-                
-                <div class="form-row">
-                    <div class="form-group col-12 col-md-2">
-                        <label class="input-group-text" for="inputGroupSelect01">Sort</label>
-                    </div>
 
-                    <div class="form-group col-12 col-md-3">
-                        <select name="gender" class="custom-select" id="inputGroupSelect01">
-                            <option value="" disabled selected>Gender...</option>
-                            <option @if (ViewBag.Gender == "male") { <text> selected</text> } value="mens">Mens</option>
-                            <option @if (ViewBag.Gender == "female") { <text> selected</text> } value="womens">Womens</option>
-                        </select>
-                    </div>
-
-                    <div class="form-group col-12 col-md-3">
-                        <select name="category" class="custom-select" id="inputGroupSelect02">
-                            <option value="" disabled selected>Category...</option>
-                            <option @if (ViewBag.Category == "shirts") { <text> selected</text> } value="shirts">Shirts</option>
-                            <option @if (ViewBag.Category == "shoes") { <text> selected</text> } value="shoes">Shoes</option>
-                            <option @if (ViewBag.Category == "hats") { <text> selected</text> } value="hats">Hats</option>
-                        </select>
-                    </div>
-
-                    <div class="form-group col-12 col-md-3">
-                        <select name="price" class="custom-select" id="inputGroupSelect03">
-                            <option value="" disabled selected>Price...</option>
-                            <option @if (ViewBag.Price == "ascending") { <text> selected</text> } value="ascending">$ - $$$</option>
-                            <option @if (ViewBag.Price == "descending") { <text> selected</text> } value="descending">$$$ - $</option>
-                        </select>
-                    </div>
-
+            <div class="form-row">
+                <div class="form-group col-12 col-md-2">
+                    <label class="input-group-text" for="inputGroupSelect01">Sort</label>
                 </div>
+
+                <div class="form-group col-12 col-md-3">
+                    <select name="gender" class="custom-select" id="inputGroupSelect01">
+                        <option value="" disabled selected>Gender...</option>
+                        <option @if (ViewBag.Gender == "male") { <text> selected</text> } value="mens">Mens</option>
+                        <option @if (ViewBag.Gender == "female") { <text> selected</text> } value="womens">Womens</option>
+                    </select>
+                </div>
+
+                <div class="form-group col-12 col-md-3">
+                    <select name="category" class="custom-select" id="inputGroupSelect02">
+                        <option value="" disabled selected>Category...</option>
+                        <option @if (ViewBag.Category == "shirts") { <text> selected</text> } value="shirts">Shirts</option>
+                        <option @if (ViewBag.Category == "shoes") { <text> selected</text> } value="shoes">Shoes</option>
+                        <option @if (ViewBag.Category == "hats") { <text> selected</text> } value="hats">Hats</option>
+                    </select>
+                </div>
+
+                <div class="form-group col-12 col-md-3">
+                    <select name="price" class="custom-select" id="inputGroupSelect03">
+                        <option value="" disabled selected>Price...</option>
+                        <option @if (ViewBag.Price == "ascending") { <text> selected</text> } value="ascending">$ - $$$</option>
+                        <option @if (ViewBag.Price == "descending") { <text> selected</text> } value="descending">$$$ - $</option>
+                    </select>
+                </div>
+
+                <button type="submit" class="btn btn-primary">Submit</button>
+
+            </div>
 }
 
 
