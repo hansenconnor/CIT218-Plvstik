@@ -28,12 +28,19 @@
     <div class="container">
         <div class="row">
             <div class="col-12">
-                <ul>
-                    <li><a href="@(ViewBag.MyQSVal["gender"] == "male" ? "$("{ViewBag.QueryString}")"  : "noMale")">asdf</a></li>
-                    <li><a href="@(ViewBag.MyQSVal["gender"] == "female" ? "female"  : "notFemale")">asdf</a></li>
-                    @*Update ViewBag.QueryString above to pull from the controller*@
-                    @* Check to see if query string already contains the parameter and add if it doesn't *@
-                </ul>
+                @foreach(var gender in ViewBag.Genders)
+                {
+                    if (gender != ViewBag.MyQSVal["gender"]) // Only show link if it is not currently in the query string
+                    {
+                        var nameValues = HttpUtility.ParseQueryString(Request.QueryString.ToString());
+                        nameValues.Set("gender", gender);
+                        string url = Request.Url.AbsolutePath;
+                        string updatedQueryString = "?" + nameValues.ToString();
+                        // Response.Redirect(url + updatedQueryString);
+
+                        <text><a href="@updatedQueryString">@gender</a></text>
+                    }
+                }
             </div>
             <div class="col-12">
 
