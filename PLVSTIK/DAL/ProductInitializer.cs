@@ -36,8 +36,8 @@ namespace PLVSTIK.DAL
                     Price = 50.00,
                     Categories = new List<ProductCategory>
                     {
-                        productCategories.Find(Category => Category.Name == "Bags"),
-                        productCategories.Find(Category => Category.Name == "Shirts"),
+                        new ProductCategory { Name="Bags" },
+                        new ProductCategory { Name="Accessories" },
                     }
                 },
                 new Product{ Title="Red Bag", Description="PLVSTIK X GUCCI BAG - RED", Price=50.00, ImageUrl="https://media.gucci.com/style/DarkGray_Center_0_0_800x800/1473267618/431665_EV4CG_6473_001_073_0000_Light-Sylvie-medium-crocodile-top-handle-bag.jpg", Featured = true  },

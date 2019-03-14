@@ -11,34 +11,6 @@ namespace PLVSTIK.Controllers
     public class ShopController : Controller
     {
         private ProductContext db = new ProductContext(); // Create db instance
-        // Create a list of products
-        List<Product> products = new List<Product> // Create a object using the model class, add values to the properties and pass the object to a view
-    {
-            new Product
-            {
-                ID = 1,
-                Title = "PLVSTIK Purse",
-                Description = "Limited edition PLVSTIK purse. Availabile in pink or blue.",
-                Price = 50.00,
-                ImageUrl = "https://images.unsplash.com/photo-1524672353063-4f66ee1f385e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1349&q=80",
-            },
-            new Product
-            {
-                ID = 2,
-                Title = "PLVSTIK Shirt",
-                Description = "Custom PLVSTIK shirt featuring a skeleton hand graphic.",
-                Price = 20.00,
-                ImageUrl = "https://images.unsplash.com/photo-1503342217505-b0a15ec3261c?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1350&q=80",
-            },
-            new Product
-            {
-                ID = 3,
-                Title = "PLVSTIK Sunglasses",
-                Description = "PLVSTIK x RayBan sunglasses with a classic green tint.",
-                Price = 150.00,
-                ImageUrl = "https://images.unsplash.com/photo-1511499767150-a48a237f0083?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1000&q=80",
-            },
-        };
 
         [HttpPost]
         public ActionResult Index(string name) // Pre-Order success view/message
@@ -54,19 +26,26 @@ namespace PLVSTIK.Controllers
 
             ViewBag.Genders = new string[2] { "male", "female" }; // List of gender categories
 
+            //var asdf = db.Products.Where(p => p.Categories
 
 
             ViewBag.Gender = String.IsNullOrEmpty(gender) ? null : gender;
             ViewBag.Category = String.IsNullOrEmpty(category) ? "shirts" : category;
             ViewBag.Price = String.IsNullOrEmpty(price) ? "descending" : price;
 
+            // Default => Display all products if query string is empty
+            if ((Request.QueryString == null) || String.IsNullOrEmpty(Request.QueryString.ToString()))
+            {
+                return View("Index", db.Products.ToList());
+            }
+            else // Otherwise, query and display products according to the user query
+            {
+                var products = db.Products
+                .Where(b => b.Categories
+                .Any(s => s.Name == category.ToString()));
 
-
-            // TODO: filter products
-
-            // TODO: Switch here to set friendly name for order, type, and timeframe ex. most_views => Most Views
-
-            return View("Index", db.Products.ToList());
+                return View("Index", products.ToList());
+            }
         }
 
         public ActionResult Index(bool featured = false) // Display all products
@@ -92,7 +71,7 @@ namespace PLVSTIK.Controllers
 
         public ActionResult ViewProduct(int productId) // Product single view
         {
-            foreach (Product product in products)
+            foreach (Product product in db.Products)
             {
                 if (product.ID == productId)
                 {
