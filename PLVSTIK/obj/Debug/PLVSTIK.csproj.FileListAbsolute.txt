@@ -307,3 +307,7 @@ C:\Users\hanse174\CIT218-Plvstik\PLVSTIK\obj\Debug\PLVSTIK.csprojResolveAssembly
 C:\Users\hanse174\CIT218-Plvstik\PLVSTIK\obj\Debug\PLVSTIK.csproj.CoreCompileInputs.cache
 C:\Users\hanse174\CIT218-Plvstik\PLVSTIK\obj\Debug\PLVSTIK.dll
 C:\Users\hanse174\CIT218-Plvstik\PLVSTIK\obj\Debug\PLVSTIK.pdb
+C:\Users\hanse174\Desktop\CIT218-Plvstik\PLVSTIK\bin\PagedList.dll
+C:\Users\hanse174\Desktop\CIT218-Plvstik\PLVSTIK\bin\PagedList.Mvc.dll
+C:\Users\hanse174\Desktop\CIT218-Plvstik\PLVSTIK\bin\PagedList.xml
+C:\Users\hanse174\Desktop\CIT218-Plvstik\PLVSTIK\bin\PagedList.Mvc.xml

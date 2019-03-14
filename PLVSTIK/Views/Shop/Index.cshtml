@@ -1,6 +1,7 @@
-﻿@model IEnumerable<PLVSTIK.Models.Product>
+﻿@model PagedList.IPagedList<PLVSTIK.Models.Product>
+    @using PagedList.Mvc;
 @{
-    PLVSTIK.Models.Product[] products = Model.ToArray();
+    //PLVSTIK.Models.Product[] products = Model.ToArray();
     ViewBag.Title = "Shop";
     ViewBag.HasFeaturedImage = true;
     ViewBag.FeaturedImageUrl = "/Content/uploads/photo-1512436991641-6745cdb1723f.jpeg"; }
@@ -25,8 +26,6 @@
 </section>
 
 <h1>Query val is @ViewBag.MyQSVal</h1>
-
-<h1>@foreach (var product in products) { @product.ID } </h1>
 
 <section>
     <div class="container">
@@ -135,6 +134,14 @@
         }*@
         </div>
     </div>
+</section>
+
+
+@* Pagination *@
+<section>
+    Page @(Model.PageCount < Model.PageNumber ? 0 : Model.PageNumber) of @Model.PageCount
+
+    @Html.PagedListPager(Model, page => Url.Action("Index", new { page }))
 </section>
 
 
