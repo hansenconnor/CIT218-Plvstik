@@ -38,13 +38,49 @@ namespace PLVSTIK.DAL
                     {
                         new ProductCategory { Name="Bags" },
                         new ProductCategory { Name="Accessories" },
-                    }
+                    },
+                    Gender = Gender.Female,
                 },
-                new Product{ Title="Red Bag", Description="PLVSTIK X GUCCI BAG - RED", Price=50.00, ImageUrl="https://media.gucci.com/style/DarkGray_Center_0_0_800x800/1473267618/431665_EV4CG_6473_001_073_0000_Light-Sylvie-medium-crocodile-top-handle-bag.jpg", Featured = true  },
-                new Product{ Title="White Shirt", Description="PLVSTIK X GUCCI SHIRT - WHITE", ImageUrl="https://images.bergdorfgoodman.com/ca/4/product_assets/M/2/2/2/L/BGM222L_mu.jpg", Price=50.00 },
-                new Product{ Title="Black Shirt", Description="PLVSTIK X GUCCI SHIRT - Black", ImageUrl="https://eyeconicwear.com/wp-content/uploads/2017/03/EyeConicWear-gucci-gg-classic-t-shirt-black.jpg", Price=50.00 },
-                new Product{ Title="Sweat Shirt", Description="PLVSTIK X GUCCI HOODIE - WHITE", ImageUrl="https://media.gucci.com/style/DarkGray_Center_0_0_800x800/1519803905/454585_X5J57_9541_001_100_0000_Light-Oversize-sweatshirt-with-Gucci-logo.jpg", Price=50.00 },
-                new Product{ Title="Sunglasses", Description="PLVSTIK X GUCCI SUNGLASSES", ImageUrl="https://www.framesdirect.com/product_elarge_images/gucci-sunglasses-gg0212s-001.jpg", Price=50.00 }
+                new Product
+                {
+                    Title = "Red Bag",
+                    Description = "PLVSTIK X GUCCI BAG - RED",
+                    Price = 50.00,
+                    ImageUrl = "https://media.gucci.com/style/DarkGray_Center_0_0_800x800/1473267618/431665_EV4CG_6473_001_073_0000_Light-Sylvie-medium-crocodile-top-handle-bag.jpg",
+                    Featured = true,
+                    Gender = Gender.Female,
+                },
+                new Product
+                {
+                    Title = "White Shirt", Description="PLVSTIK X GUCCI SHIRT - WHITE",
+                    ImageUrl = "https://images.bergdorfgoodman.com/ca/4/product_assets/M/2/2/2/L/BGM222L_mu.jpg",
+                    Price = 50.00,
+                    Gender = Gender.Female,
+                },
+                new Product
+                {
+                    Title = "Black Shirt",
+                    Description ="PLVSTIK X GUCCI SHIRT - Black",
+                    ImageUrl = "https://eyeconicwear.com/wp-content/uploads/2017/03/EyeConicWear-gucci-gg-classic-t-shirt-black.jpg",
+                    Price = 50.00,
+                    Gender = Gender.Male,
+                },
+                new Product
+                {
+                    Title = "Sweat Shirt",
+                    Description = "PLVSTIK X GUCCI HOODIE - WHITE",
+                    ImageUrl = "https://media.gucci.com/style/DarkGray_Center_0_0_800x800/1519803905/454585_X5J57_9541_001_100_0000_Light-Oversize-sweatshirt-with-Gucci-logo.jpg",
+                    Price = 50.00,
+                    Gender = Gender.Female,
+                },
+                new Product
+                {
+                    Title = "Sunglasses",
+                    Description = "PLVSTIK X GUCCI SUNGLASSES",
+                    ImageUrl = "https://www.framesdirect.com/product_elarge_images/gucci-sunglasses-gg0212s-001.jpg",
+                    Price = 50.00,
+                    Gender = Gender.Male,
+                }
             };
             // Add entries to the corresponding table
             products.ForEach(p => context.Products.Add(p));

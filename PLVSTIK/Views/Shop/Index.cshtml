@@ -25,7 +25,7 @@
     </div>
 </section>
 
-<h1>Query val is @ViewBag.MyQSVal</h1>
+@*<h1>Query val is @ViewBag.MyQSVal</h1>*@
 
 <section>
     <div class="container">
@@ -41,16 +41,16 @@
                         string updatedQueryString = "?" + nameValues.ToString();
                         // Response.Redirect(url + updatedQueryString);
 
-                        <text><a href="@updatedQueryString">@gender</a></text>
+                        //<text><a href="@updatedQueryString">@gender</a></text>
                     }
                 }
             </div>
             <div class="col-12">
 
 
-            @*Sort and Filter form*@
-            @using (Html.BeginForm("Index", "Shop", FormMethod.Get, new { order = "empform" }))
-{
+                @*Sort and Filter form*@
+                @using (Html.BeginForm("Index", "Shop", FormMethod.Get, new { order = "empform" }))
+    {
             @Html.AntiForgeryToken();
 
             <div class="form-row">
@@ -68,10 +68,12 @@
 
                 <div class="form-group col-12 col-md-3">
                     <select name="category" class="custom-select" id="inputGroupSelect02">
-                        <option value="" disabled selected>Category...</option>
+                        @*<option value="" disabled selected>Category...</option>*@
                         <option @if (ViewBag.Category == "shirts") { <text> selected</text> } value="shirts">Shirts</option>
                         <option @if (ViewBag.Category == "shoes") { <text> selected</text> } value="shoes">Shoes</option>
                         <option @if (ViewBag.Category == "hats") { <text> selected</text> } value="hats">Hats</option>
+                        <option @if (ViewBag.Category == "bags") { <text> selected</text> } value="bags">Bags</option>
+                        <option @if (ViewBag.Category == null) { <text> selected</text> }>All</option>
                     </select>
                 </div>
 
@@ -87,7 +89,16 @@
 
             </div>
 }
+                @foreach (var item in Model)
+                {
+                    foreach (var category in item.Categories)
+                    {
+                        if (ViewBag.Category == null)
+                        {
 
+                        }
+                    }
+                }
 
             </div>
             @* TODO: Add filter, sort and search functionality (AJAX?) *@

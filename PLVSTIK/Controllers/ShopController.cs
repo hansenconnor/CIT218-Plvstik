@@ -25,6 +25,8 @@ namespace PLVSTIK.Controllers
         [HttpGet]
         public ActionResult Index( string gender, string category, string price, int? page )
         {
+
+
             ViewBag.MyQSVal = Request.QueryString; // Query String
 
             ViewBag.Genders = new string[2] { "male", "female" }; // List of gender categories
@@ -34,16 +36,12 @@ namespace PLVSTIK.Controllers
             int pageSize = 3;
             int pageNumber = (page ?? 1);
 
-            ViewBag.Gender = String.IsNullOrEmpty(gender) ? null : gender;
-            ViewBag.Category = String.IsNullOrEmpty(category) ? "shirts" : category;
+            gender = String.IsNullOrEmpty(gender) ? null : gender;
+            ViewBag.Category = String.IsNullOrEmpty(category) ? null : category;
             ViewBag.Price = String.IsNullOrEmpty(price) ? "descending" : price;
 
-            // Default => Display all products if query string is empty
-            if ((Request.QueryString == null) || String.IsNullOrEmpty(Request.QueryString.ToString()))
-            {
-                return View("Index", db.Products.OrderBy(p => p.Title).ToPagedList(pageNumber, pageSize));
-            }
-            else // Otherwise, query and display products according to the user query
+
+            if (category != null)
             {
                 var products = db.Products
                 .Where(b => b.Categories
@@ -51,6 +49,26 @@ namespace PLVSTIK.Controllers
 
                 return View("Index", products.OrderBy(p => p.Title).ToPagedList(pageNumber, pageSize));
             }
+
+            else
+            {
+                return View("Index", db.Products.OrderBy(p => p.Title).ToPagedList(pageNumber, pageSize));
+            }
+
+
+            // Default => Display all products if query string is empty
+            //if ((Request.QueryString == null) || String.IsNullOrEmpty(Request.QueryString.ToString()))
+            //{
+            //    return View("Index", db.Products.OrderBy(p => p.Title).ToPagedList(pageNumber, pageSize));
+            //}
+            //else // Otherwise, query and display products according to the user query
+            //{
+            //    var products = db.Products
+            //    .Where(b => b.Categories
+            //    .Any(s => s.Name == category.ToString()));
+
+            //    return View("Index", products.OrderBy(p => p.Title).ToPagedList(pageNumber, pageSize));
+            //}
         }
 
 

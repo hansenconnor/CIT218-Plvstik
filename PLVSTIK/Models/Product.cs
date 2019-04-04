@@ -13,6 +13,7 @@ namespace PLVSTIK.Models
         public double Price { get; set; }
         public string ImageUrl { get; set; }
         public bool Featured { get; set; }
+        public Gender Gender { get; set; }
 
         public virtual ICollection<ProductCategory> Categories { get; set; } // List to hold associated product categories
     }
